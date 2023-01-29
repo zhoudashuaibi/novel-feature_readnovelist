@@ -1,0 +1,24 @@
+@charset "utf-8";
+// 公共样式
+$main-color: rgb(54, 165, 255);
+
+@media screen and (min-width: 768px) {
+
+  body,
+  html {
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .footer {
+    max-width: 750px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    left: 50% !important;
+    transform: translateX(-50%);
+    background: #fff;
+    border-top: 1px solid #ddd;
+  }
+}

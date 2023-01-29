@@ -1,0 +1,397 @@
+@charset "utf-8";
+
+//重置样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  outline: none;
+  border: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+link {
+  display: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: default;
+  // overflow: hidden;
+  font-family: "Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif";
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  font-size: 625%;
+  /*mobile chrome浏览器下字体不能小于12px*/
+}
+
+body {
+  position: relative;
+  font-size: 0.14rem;
+  font-family: "Microsoft YaHei UI Light", "Microsoft YaHei Light",
+    "Microsoft YaHei", simsun, "Helvetica Neue", "Luxi Sans", "DejaVu Sans",
+    Tahoma, "Hiragino Sans GB", STHeiti;
+  -webkit-font-smoothing: antialiased;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+a img {
+  border: 0;
+}
+
+a,
+a:hover,
+a:after,
+a:before {
+  text-decoration: none;
+  color: static;
+}
+
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var,
+i {
+  cursor: pointer;
+  font-style: normal;
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="date"],
+button,
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  /*去掉苹果的默认UI来渲染按钮 、解决部分手机浏览器对border：none无效办法*/
+}
+
+input {
+  outline: none;
+}
+
+// input::-webkit-input-placeholder {
+//     /*所用的input的占位符placeholder的字体颜色*/
+//     font: bold .14rem "arial";
+//     color: map-get($darkcolor, placeholder);
+// }
+
+// /*input:focus: */
+
+// input:focus::-webkit-input-placeholder {
+//     color: map-get($darkcolor, placeholder);
+// }
+
+// 去除 chrome 自动填充黄底
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a,
+input[type="text"],
+select,
+input[type="password"],
+textarea {
+  /*去掉微信端input-text在ios轻快下的点击出先黑色半透明背景*/
+  tap-highlight-color: transparent !important;
+}
+
+// ::-webkit-scrollbar
+
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  -webkit-border-radius: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #7cbaef;
+  -webkit-border-radius: 4px;
+  // outline: 2px solid #fff;
+  outline: 0;
+  outline-offset: -2px;
+  // border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  height: 50px;
+  background-color: #9f9f9f;
+  -webkit-border-radius: 4px;
+}
+
+// //公共样式类
+// ellipsis，省略号，当超过宽度时，显示省略号
+@mixin ell() {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+
+  *height: 1%;
+  _height: 1%;
+  _zoom: 1;
+}
+
+// display:inline-block;IE6,7块级元素对inline-block支持不好，需要触发Layout；内联元素就不需要了。
+@mixin dib() {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+@mixin minHeight($min-height) {
+  min-height: $min-height;
+  height: auto !important;
+  height: $min-height;
+}
+
+// css三角形  arrow(direction,size,color);
+@mixin arrow($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  border-width: $size;
+  cursor: pointer;
+
+  @if $direction==top {
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent $color transparent;
+    border-top: none;
+  }
+
+  @else if $direction==bottom {
+    border-style: solid dashed dashed dashed;
+    border-color: $color transparent transparent transparent;
+    border-bottom: none;
+  }
+
+  @else if $direction==right {
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent $color;
+    border-right: none;
+  }
+
+  @else if $direction==left {
+    border-style: dashed solid dashed dashed;
+    border-color: transparent $color transparent transparent;
+    border-left: none;
+  }
+}
+
+// 四周边框  direction:左上/左下/右上/右下 $bordersize 线的粗细 $color 线的颜色
+@mixin border($direction, $bordersize, $color) {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  position: absolute;
+
+  @if $direction=="lefttop" {
+    top: 0;
+    left: 0;
+    border-top: $bordersize solid $color;
+    border-left: $bordersize solid $color;
+  }
+
+  @else if $direction=="leftbottom" {
+    bottom: 0;
+    left: 0;
+    border-bottom: $bordersize solid $color;
+    border-left: $bordersize solid $color;
+  }
+
+  @else if $direction=="righttop" {
+    top: 0;
+    right: 0;
+    border-top: $bordersize solid $color;
+    border-right: $bordersize solid $color;
+  }
+
+  @else {
+    bottom: 0;
+    right: 0;
+    border-bottom: $bordersize solid $color;
+    border-right: $bordersize solid $color;
+  }
+}
+
+//某个块的阴影
+@mixin boxshadow($color) {
+  box-shadow: 1px 1px 4px 1px $color;
+}
+
+// symbol预留
+@mixin icon {
+  vertical-align: -0.15em;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont" !important;
+}
+
+@mixin text-flow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.fl {
+  float: left !important;
+}
+
+.fr {
+  float: right !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.dn {
+  display: none;
+}
+
+.dn_must {
+  display: none !important;
+}
+
+.vn {
+  visibility: hidden;
+}
+
+@each $col in 10,
+20,
+25,
+30,
+33,
+35,
+40,
+50,
+60,
+65,
+70,
+75,
+80,
+90,
+100 {
+  .col_#{$col} {
+    width: $col * 1%;
+    float: left;
+  }
+}
+
+// 大盒子分界
+#app {
+  width: 100%;
+  height: 100%;
+
+  .index {
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    width: 100%;
+    height: calc(100% - 80px);
+    -moz-height: calc(100% - 80px);
+    overflow: hidden;
+  }
+}

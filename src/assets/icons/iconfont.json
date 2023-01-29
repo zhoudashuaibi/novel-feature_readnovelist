@@ -1,0 +1,86 @@
+{
+  "id": "2913141",
+  "name": "novel",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "被窝h5",
+  "glyphs": [
+    {
+      "icon_id": "11488289",
+      "name": "password",
+      "font_class": "password",
+      "unicode": "e786",
+      "unicode_decimal": 59270
+    },
+    {
+      "icon_id": "767264",
+      "name": "menu3",
+      "font_class": "menu",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "5203321",
+      "name": "月亮",
+      "font_class": "yueliang",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "8852432",
+      "name": "太阳-01",
+      "font_class": "taiyang",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "10932233",
+      "name": "font-size",
+      "font_class": "font-size",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "14835598",
+      "name": "左箭头",
+      "font_class": "left",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "14835599",
+      "name": "右箭头",
+      "font_class": "right",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "13123046",
+      "name": "下一页",
+      "font_class": "xiayiye",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "338304",
+      "name": "未收藏",
+      "font_class": "weishoucang",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "16271684",
+      "name": "收藏 2",
+      "font_class": "shoucang",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "201666",
+      "name": "3.1 返回1",
+      "font_class": "fanhui",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
